@@ -6,6 +6,7 @@ import com.puppyyuan.domain.Man;
 import com.puppyyuan.service.ManService;
 import com.puppyyuan.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,7 @@ public class ManController {
     }
 
     @GetMapping("/man/{id}")
+    @Cacheable(value = "man-cache")
     public Man get(@PathVariable Integer id){
         return manRepository.findOne(id);
     }
