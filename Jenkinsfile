@@ -3,28 +3,30 @@ node("master"){
     def workspace = pwd()
     def TOMCAT_HOME = "/Users/yuanpeng/software/apache-tomcat-8.5.9"
 
-    stage('Package'){
-        echo "initial packaging ..."
+    stages{
+        stage('Package'){
+            echo "initial packaging ..."
 
-        sh 'mvn clean package'
+            sh 'mvn clean package'
 
-        echo "package complete"
+            echo "package complete"
+        }
+
+        stage('Deploy'){
+            echo "initial deploying"
+
+            sh "rm -rf ${TOMCAT_HOME}/webapps/spring-boot-demo-0.0.1*"
+
+            sh "cp target/spring-boot-demo-0.0.1.war ${TOMCAT_HOME}/webapps"
+
+        }
+
     }
 
-    stage('Deploy'){
-        echo "initial deploying"
+    post {
 
-        sh """
-
-
-        rm -rf ${TOMCAT_HOME}/webapps/spring-boot-demo-0.0.1/*
-
-        cp target/spring-boot-demo-0.0.1.war ${TOMCAT_HOME}/webapps
-
-        ${TOMCAT_HOME}/bin/catalina.sh start
-
-
-        """
+        success{
+            sh "${TOMCAT_HOME}/bin/catalina.sh start"
+        }
     }
-
 }
