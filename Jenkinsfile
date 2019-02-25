@@ -14,7 +14,7 @@ node("master"){
     stage('Deploy'){
         echo "initial deploying"
 
-        sh '${TOMCAT_HOME}/bin/catalina.sh start'
+        sh """${TOMCAT_HOME}/bin/catalina.sh start"""
 
 
     }
