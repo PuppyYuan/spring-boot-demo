@@ -3,7 +3,6 @@ node("master"){
     def workspace = pwd()
     def TOMCAT_HOME = "/Users/yuanpeng/software/apache-tomcat-8.5.9"
 
-
     stage('Package'){
         echo "initial packaging ..."
 
