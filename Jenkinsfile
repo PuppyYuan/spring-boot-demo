@@ -1,4 +1,4 @@
-pipeine{
+pipeline{
     checkout scm
     def workspace = pwd()
     def TOMCAT_HOME = "/Users/yuanpeng/software/apache-tomcat-8.5.9"
