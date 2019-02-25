@@ -6,7 +6,7 @@ node("master"){
 
     stage('Build'){
 
-        echo TOMCAT_HOME
+        sh 'mvn clean package'
     }
 
 
