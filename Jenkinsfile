@@ -14,16 +14,9 @@ node("master"){
     stage('Deploy'){
         echo "initial deploying"
 
-        sh """
-
-        ${TOMCAT_HOME}/bin/catalina.sh stop || true
-
-        cp target/spring-boot-demo-0.0.1.war ${TOMCAT_HOME}/webapps
-
-        ${TOMCAT_HOME}/bin/catalina.sh start
+        sh '${TOMCAT_HOME}/bin/catalina.sh start'
 
 
-        """
     }
 
 }
