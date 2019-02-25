@@ -5,10 +5,11 @@ node("master"){
     def MVN_HOME = "${MVN_HOME}/bin/mvn"
 
     stage('Build'){
-
-        sh 'mvn clean package'
+        sh 'mvn build'
     }
 
-
+    stage('Deploy'){
+        sh 'mvn clean package'
+    }
 
 }
