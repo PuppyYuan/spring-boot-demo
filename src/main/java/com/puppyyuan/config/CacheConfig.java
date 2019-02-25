@@ -21,10 +21,11 @@ import java.lang.reflect.Method;
  * Created by yuanpeng on 2017/9/26.
  */
 
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class CacheConfig extends CachingConfigurerSupport {
 
+    @Override
     @Bean
     public KeyGenerator keyGenerator(){
         return new KeyGenerator() {

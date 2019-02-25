@@ -12,8 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SpringBootDemoApplicationTests {
 
-	@Autowired
-	private StringRedisTemplate stringRedisTemplate;
+//	@Autowired
+//	private StringRedisTemplate stringRedisTemplate;
 
 	@Test
 	public void contextLoads() {
@@ -21,8 +21,8 @@ public class SpringBootDemoApplicationTests {
 
 	@Test
 	public void test() throws Exception {
-		stringRedisTemplate.opsForValue().set("aaa", "111");
-		Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
+//		stringRedisTemplate.opsForValue().set("aaa", "111");
+//		Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
 	}
 
 }

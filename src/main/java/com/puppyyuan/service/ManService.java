@@ -37,10 +37,12 @@ public class ManService {
 
         Man man = manRepository.findOne(id);
         Integer age = man.getAge();
+        int agePrimary = 10;
+        int ageYoung = 16;
 
-        if(age < 10){
+        if(age < agePrimary){
             throw new ManException(ResultEnum.PRIMARY_SCHOOL);
-        } else if(age >= 10 && age < 16){
+        } else if(age >= agePrimary && age < ageYoung){
             throw new ManException(ResultEnum.MIDDLE_SCHOOL);
         } else {
             throw new ManException(ResultEnum.SUCCESS);
